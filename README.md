@@ -42,9 +42,9 @@ This approach to security offers several key advantages:
 
 | Layer             | Tool / Protocol                               |
 | ----------------- | --------------------------------------------- |
-| **Security Engine** | [Drosera Protocol](https://drosera.io)        |
-| **Blockchain**    | Any EVM-compatible chain (e.g., Hoodi Testnet) |
-| **Smart Contracts**| Solidity (^0.8.20)                            |
+| **Security Engine** | [Drosera](https://app.drosera.io)        |
+| **Blockchain**    | Ethereum Hoodi Testnet |
+| **Smart Contracts**| Solidity (^0.8.30)                            |
 | **Dev Framework** | [Foundry](https://getfoundry.sh/)             |
 
 ---
