@@ -7,57 +7,61 @@ This repository contains a Drosera-powered security trap designed to proactively
 
 ---
 
-## 🤔 The Problem: Flash Loan Attacks
+## 🤔 What is a Flash Loan Attack?
 
-Flash loans, while a powerful DeFi primitive, can be weaponized. In an attack, a malicious actor borrows a massive amount of cryptocurrency with no upfront collateral, uses it to manipulate a protocol's internal logic, and repays the loan—all within a single, atomic transaction. These attacks are incredibly fast and can be financially devastating to the target protocol. This project is a defense mechanism against such threats.
+A flash loan allows a user to borrow a massive amount of cryptocurrency with no upfront collateral, but it must be repaid within the same blockchain transaction. While a powerful DeFi tool, this feature can be weaponized.
 
----
-
-## ✨ The Solution: A Drosera-Powered Trap
-
-This project uses the [Drosera](https://drosera.io) protocol to create a decentralized security enforcement layer. It works by watching the public transaction pool (mempool) for transactions that initiate flash loans and triggering an immediate, on-chain response.
-
-### Key Components
-
-1.  **`FlashBait.sol` (The Trap 🎣):** This is the core detection logic. Deployed as a Drosera trap, its code is executed by a decentralized network of operators who inspect in-flight transactions. It specifically looks for the function selectors corresponding to a Uniswap V3 `flash` call or a Uniswap V2 `swap` call, which are the entry points for flash loans on their respective platforms.
-
-2.  **`BaitResponse.sol` (The Response 🚨):** This is the action-taker. If the `FlashBait` trap identifies a potential threat, the Drosera network immediately calls this contract. The response logic can be customized to the needs of a protocol—from pausing functionality to alerting a security council or executing a counter-measure. In this example, it simply logs the event for on-chain proof.
-
-### Workflow
-
-The security flow is designed to be simple, fast, and effective:
-
-```
-+---------------------------------+
-|   Malicious Transaction Appears |
-|         (in Mempool)            |
-+---------------------------------+
-                 |
-                 v
-+---------------------------------+
-|   Drosera Operators Detect It   |
-+---------------------------------+
-                 |
-                 v
-+---------------------------------+
-|  `FlashBait` Trap Confirms      |
-|           Threat                |
-+---------------------------------+
-                 |
-                 v
-+---------------------------------+
-| `BaitResponse` Contract         |
-|         is Triggered            |
-+---------------------------------+
-```
+In a **flash loan attack**, a malicious actor borrows funds, uses them to manipulate a protocol's internal logic (e.g., by creating an imbalance in a price oracle), and then repays the loan, all in one atomic transaction. These attacks are incredibly fast and can be financially devastating to the target protocol. This project is a defense mechanism against such threats.
 
 ---
 
-### Tech Stack
+## ✨ What Does This Trap Do?
 
-*   **Solidity:** For the smart contracts.
-*   **Foundry:** For the development environment, testing, and deployment scripts.
-*   **Drosera:** For the decentralized security monitoring and response network.
+This Drosera trap provides real-time, on-chain threat monitoring. It is designed to:
+
+1.  **Watch the Mempool:** Continuously inspect in-flight transactions before they are included in a block.
+2.  **Identify Flash Loan Signatures:** Specifically look for the function calls that initiate flash loans on Uniswap V2 (`swap`) and V3 (`flash`).
+3.  **Trigger an Automated Response:** If a flash loan signature is detected, the trap immediately calls a separate `BaitResponse` contract to execute a pre-defined security action.
+
+All of this happens decentrally, without relying on any off-chain infrastructure.
+
+---
+
+## 💡 Why Is It Innovative?
+
+This approach to security offers several key advantages:
+
+*   **Proactive, Not Reactive:** It detects threats *before* they are executed on-chain, unlike post-mortem analysis tools.
+*   **Fully Decentralized:** The detection and response mechanism is run by a network of independent Drosera operators, removing single points of failure.
+*   **Transparent & Verifiable:** Since the trap and response are on-chain, anyone can audit the logic and verify the actions taken.
+*   **Cost-Efficient:** It avoids the need to build, host, and maintain centralized monitoring infrastructure.
+
+---
+
+## 🛠️ Technologies Used
+
+| Layer             | Tool / Protocol                               |
+| ----------------- | --------------------------------------------- |
+| **Security Engine** | [Drosera Protocol](https://drosera.io)        |
+| **Blockchain**    | Any EVM-compatible chain (e.g., Hoodi Testnet) |
+| **Smart Contracts**| Solidity (^0.8.20)                            |
+| **Dev Framework** | [Foundry](https://getfoundry.sh/)             |
+
+---
+
+## 📝 Sample Response
+
+When the trap detects a flash loan, it triggers the `BaitResponse` contract, which emits the following event. This creates a permanent, on-chain record of the detected activity.
+
+```solidity
+event FlashLoanCaught(
+    address indexed recipient,
+    uint256 amount0,
+    uint256 amount1
+);
+```
+
+This event can be indexed by subgraphs, dashboards, or other monitoring tools to provide real-time alerts.
 
 ---
 
@@ -76,28 +80,6 @@ The security flow is designed to be simple, fast, and effective:
 ├── drosera.toml            # The main configuration file for the Drosera trap.
 └── foundry.toml            # The main configuration file for the Foundry toolkit.
 ```
-
----
-
-## ⚙️ Configuration & Usage
-
-To use this trap, you need to:
-
-1.  **Deploy the `BaitResponse.sol` contract.** This will be the action-taker when a threat is detected.
-2.  **Update `drosera.toml`:** Set the `response_contract` field to the address of your deployed `BaitResponse` contract.
-3.  **Deploy the trap:** Run `drosera apply` to register the trap with the Drosera network, which will begin monitoring for threats.
-
----
-
-## ✅ Testing
-
-The project includes a full test suite. To run the tests and verify the logic, use the following Foundry command:
-
-```bash
-forge test
-```
-
-The tests simulate both V2 and V3 flash loan attacks, as well as normal transactions, to ensure the trap logic is sound.
 
 ---
 
