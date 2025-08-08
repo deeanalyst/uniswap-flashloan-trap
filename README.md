@@ -154,7 +154,3 @@ This project provides a solid foundation, but there are many ways it could be ex
 I hope this project serves as a useful example for other developers exploring decentralized security. Feedback and contributions are highly welcome. If you have ideas for improvements or find any issues, please feel free to open an issue or submit a pull request. I would be happy to see others fork this repository and build upon this work.
 
 ---
-
-## 📄 License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
