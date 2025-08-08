@@ -87,7 +87,6 @@ This two-step process provides a robust and verifiable response to detected thre
 │   └── BaitResponse.t.sol  # Tests for the response contract.
 ├── scripts/
 │   └── DeployBaitResponse.s.sol # A Foundry script to deploy the response contract.
-├── out/                    # Compiled contract artifacts (ignored by Git).
 ├── drosera.toml            # The main configuration file for the Drosera trap.
 └── foundry.toml            # The main configuration file for the Foundry toolkit.
 ```
