@@ -1,5 +1,8 @@
 # 🛡️ Drosera Uniswap Flash Loan Trap 🎣
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
 This repository contains a Drosera-powered security trap designed to proactively detect and respond to both Uniswap V2 and V3 flash loan attacks in real-time. I built this to demonstrate a practical, real-world example of how decentralized security monitors can be used to defend DeFi protocols.
 
 ---
@@ -12,11 +15,13 @@ Flash loans, while a powerful DeFi primitive, can be weaponized. In an attack, a
 
 ## ✨ The Solution: A Drosera-Powered Trap
 
-This project uses the [Drosera](https://drosera.io) protocol to create a decentralized security enforcement layer. It consists of two main smart contracts:
+This project uses the [Drosera](https://drosera.io) protocol to create a decentralized security enforcement layer. It works by watching the public transaction pool (mempool) for transactions that initiate flash loans and triggering an immediate, on-chain response.
 
-1.  **`FlashBait.sol` (The Trap 🎣):** This is the lookout. The trap's code is executed by Drosera's network of operators, who monitor the public transaction pool (mempool). It inspects in-flight transactions for the function signatures of Uniswap V3 `flash` calls or Uniswap V2 `swap` calls, both of which can be used to initiate flash loans.
+### Key Components
 
-2.  **`BaitResponse.sol` (The Response 🚨):** This is the response unit. If the `FlashBait` trap signals a threat, the Drosera network immediately calls this contract. The response logic can be customized to the needs of a protocol—from pausing functionality to alerting a security council. In this example, it simply logs the event.
+1.  **`FlashBait.sol` (The Trap 🎣):** This is the core detection logic. Deployed as a Drosera trap, its code is executed by a decentralized network of operators who inspect in-flight transactions. It specifically looks for the function selectors corresponding to a Uniswap V3 `flash` call or a Uniswap V2 `swap` call, which are the entry points for flash loans on their respective platforms.
+
+2.  **`BaitResponse.sol` (The Response 🚨):** This is the action-taker. If the `FlashBait` trap identifies a potential threat, the Drosera network immediately calls this contract. The response logic can be customized to the needs of a protocol—from pausing functionality to alerting a security council or executing a counter-measure. In this example, it simply logs the event for on-chain proof.
 
 ### Workflow
 
@@ -96,9 +101,20 @@ The tests simulate both V2 and V3 flash loan attacks, as well as normal transact
 
 ---
 
-## 💡 Feedback & Contributions
+## 💡 Future Improvements
 
-I hope this project serves as a useful example for other developers exploring decentralized security. Feedback is highly welcome. If you have ideas for improvements or find any issues, please feel free to open an issue or submit a pull request. I would be happy to see others fork this repository and build upon this work.
+This project provides a solid foundation, but there are many ways it could be extended:
+
+*   **Deeper Inspection:** Instead of just matching function selectors, the trap could be enhanced to parse the transaction data more deeply, such as verifying that the call is being made to a legitimate Uniswap pool address.
+*   **Broader DEX Support:** The logic could be expanded to detect flash loans from other major DEXs like Sushiswap, Aave, or Balancer.
+*   **More Sophisticated Responses:** The `BaitResponse` contract could be built out with more advanced logic, such as a circuit-breaker that pauses critical protocol functions or a mechanism to notify a multi-sig wallet via an on-chain event.
+*   **Gas Optimization:** Further analysis could be done to optimize the gas usage of the trap's detection logic, making it even more efficient for the Drosera operators to run.
+
+---
+
+## 🤝 Contributing
+
+I hope this project serves as a useful example for other developers exploring decentralized security. Feedback and contributions are highly welcome. If you have ideas for improvements or find any issues, please feel free to open an issue or submit a pull request. I would be happy to see others fork this repository and build upon this work.
 
 ---
 
