@@ -1,13 +1,13 @@
 import "forge-std/Script.sol";
 import "forge-std/Test.sol";
 
-import "../src/ResponseProtocol.sol";
+import "../src/BaitResponse.sol";
 
-contract DeployResponseProtocol is Script, Test {
+contract DeployBaitResponse is Script, Test {
   
     function run() external {
         vm.startBroadcast();
-        ResponseProtocol _responseProtocol = new ResponseProtocol();
+        BaitResponse _baitResponse = new BaitResponse();
         vm.stopBroadcast();
     }
 }

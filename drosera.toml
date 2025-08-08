@@ -1,17 +1,18 @@
-ethereum_rpc = "https://ethereum-hoodi-rpc.publicnode.com"
+ethereum_rpc = "https://rpc.ankr.com/eth_hoodi/b0e129b35af27176c4417c6aee1dfa2943f1d6770c30bf3dd4c5dc6805b2009f"
 drosera_rpc = "https://relay.hoodi.drosera.io"
 eth_chain_id = 560048
 drosera_address = "0x91cB447BaFc6e0EA0F4Fe056F5a9b1F14bb06e5D"
 
 [traps]
 
-[traps.mytrap]
-path = "out/HelloWorldTrap.sol/HelloWorldTrap.json"
-response_contract = "0x183D78491555cb69B68d2354F7373cc2632508C7"
-response_function = "helloworld(string)"
-cooldown_period_blocks = 33
+[traps.flashbait]
+path = "out/FlashBait.sol/FlashBait.json"
+response_contract = "0x44a71d0571734b288f041aa7676a3abd230b18d3"
+response_function = "execute(bytes)"
+cooldown_period_blocks = 6
 min_number_of_operators = 1
 max_number_of_operators = 2
-block_sample_size = 10
-private_trap = true
+block_sample_size = 3
+private = true
 whitelist = []
+address = "0x587DCdf01A79Dd2c535615B64A92cB2557c9a284"

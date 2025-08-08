@@ -6,3 +6,4 @@ libs = ["node_modules"]
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
 [rpc_endpoints]
 mainnet = "https://eth.llamarpc.com"
+hoodi = "${HOODI_RPC_URL}"
