@@ -1,4 +1,4 @@
-ethereum_rpc = "https://rpc.ankr.com/eth_hoodi/b0e129b35af27176c4417c6aee1dfa2943f1d6770c30bf3dd4c5dc6805b2009f"
+ethereum_rpc = "HOODI_RPC_URL"
 drosera_rpc = "https://relay.hoodi.drosera.io"
 eth_chain_id = 560048
 drosera_address = "0x91cB447BaFc6e0EA0F4Fe056F5a9b1F14bb06e5D"
