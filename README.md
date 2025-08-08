@@ -49,9 +49,19 @@ This approach to security offers several key advantages:
 
 ---
 
-## 📝 Sample Response
+## 📝 The Response Mechanism
 
-When the trap detects a flash loan, it triggers the `BaitResponse` contract, which emits the following event. This creates a permanent, on-chain record of the detected activity.
+As defined in `drosera.toml`, when the trap is triggered, the Drosera network makes a direct function call to the `BaitResponse` contract.
+
+**1. The Function Call (The Direct Response):**
+The network calls the `execute` function, passing the encoded flash loan data as a `bytes` argument.
+
+```solidity
+function execute(bytes calldata data) external;
+```
+
+**2. The On-Chain Record (The Result):**
+Inside the `execute` function, the contract decodes the data and emits a `FlashLoanCaught` event. This event serves as the permanent, on-chain record of the detected threat.
 
 ```solidity
 event FlashLoanCaught(
@@ -61,7 +71,7 @@ event FlashLoanCaught(
 );
 ```
 
-This event can be indexed by subgraphs, dashboards, or other monitoring tools to provide real-time alerts.
+This two-step process provides a robust and verifiable response to detected threats.
 
 ---
 
