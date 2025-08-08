@@ -93,6 +93,52 @@ This two-step process provides a robust and verifiable response to detected thre
 
 ---
 
+## 🚀 Setup & Deploy
+
+To get this project running, follow these steps. You will need [Foundry](https://getfoundry.sh/) and [Bun](https://bun.sh/) installed.
+
+**1. Clone and Install Dependencies:**
+```bash
+git clone https://github.com/deeanalyst/uniswap-flashloan-trap.git
+cd uniswap-flashloan-trap
+bun install
+forge build
+```
+
+**2. Create Environment File:**
+Create a `.env` file in the root directory and add your RPC URL and private key. This file is ignored by Git.
+```
+HOODI_RPC_URL="your_hoodi_testnet_rpc_url"
+PRIVATE_KEY="your_wallet_private_key"
+```
+
+**3. Deploy the Response Contract:**
+This command deploys the `BaitResponse.sol` contract, which will be triggered by the trap.
+```bash
+source .env && forge script scripts/DeployBaitResponse.s.sol:DeployBaitResponse --rpc-url $HOODI_RPC_URL --private-key $PRIVATE_KEY --broadcast
+```
+
+**4. Configure and Deploy the Trap:**
+Open `drosera.toml` and paste the deployed `BaitResponse` contract address into the `response_contract` field. Then, deploy the trap to the Drosera network.
+```bash
+# In drosera.toml:
+# response_contract = "0xYourBaitResponseContractAddress"
+
+source .env && drosera apply --private-key $PRIVATE_KEY
+```
+
+---
+
+## ✅ Testing
+
+The project includes a full test suite. To run the tests and verify the logic, use the following Foundry command:
+
+```bash
+forge test
+```
+
+---
+
 ## 💡 Future Improvements
 
 This project provides a solid foundation, but there are many ways it could be extended:
