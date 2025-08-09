@@ -135,6 +135,7 @@ The project includes a full test suite. To run the tests and verify the logic, u
 ```bash
 forge test
 ```
+<img width="500" height="180" alt="Screenshot 2025-08-09 082323" src="https://github.com/user-attachments/assets/08c27d86-5acf-426a-bffc-3783f88b1834" />
 
 ---
 
