@@ -16,7 +16,7 @@ contract FlashBait is ITrap {
     bytes4 internal constant SWAP_SELECTOR_V2 = 0x022c0d9f;
 
     function collect() external view returns (bytes memory) {
-        return "";
+        return "Collecting data for flash loan trap";
     }
 
     /// @notice Checks the transaction trace for the `flash` or `swap` function selectors.

@@ -12,7 +12,7 @@ contract BaitResponse {
 
     /// @notice Executes the response when the trap is triggered.
     /// @param data The calldata passed to the response, containing the original transaction's calldata.
-    function execute(bytes calldata data) external {
+    function executeBytes(bytes calldata data) external {
         (address recipient, uint256 amount0, uint256 amount1) =
             abi.decode(data, (address, uint256, uint256));
 

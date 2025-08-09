@@ -8,10 +8,11 @@ drosera_address = "0x91cB447BaFc6e0EA0F4Fe056F5a9b1F14bb06e5D"
 [traps.flashbait]
 path = "out/FlashBait.sol/FlashBait.json"
 response_contract = "0x44a71d0571734b288f041aa7676a3abd230b18d3"
-response_function = "execute(bytes)"
+response_function = "executeBytes(bytes)"
 cooldown_period_blocks = 6
 min_number_of_operators = 1
 max_number_of_operators = 2
 block_sample_size = 3
 private = true
 whitelist = []
+address = "0x587DCdf01A79Dd2c535615B64A92cB2557c9a284"

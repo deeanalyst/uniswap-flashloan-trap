@@ -11,7 +11,7 @@ contract BaitResponseTest is Test {
         baitResponse = new BaitResponse();
     }
 
-    function testExecute() public {
+    function testExecuteBytes() public {
         // 1. Mock the data that would be passed from the FlashBait trap
         address recipient = address(0x1);
         uint256 amount0 = 100e18;
@@ -23,6 +23,6 @@ contract BaitResponseTest is Test {
         emit BaitResponse.FlashLoanCaught(recipient, amount0, amount1);
 
         // 3. Call the execute function
-        baitResponse.execute(trapData);
+        baitResponse.executeBytes(trapData);
     }
 }
