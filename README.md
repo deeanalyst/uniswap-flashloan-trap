@@ -1,7 +1,6 @@
 # 🛡️ Drosera Uniswap Flash Loan Trap 🎣
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 This repository contains a Drosera-powered security trap designed to proactively detect and respond to both Uniswap V2 and V3 flash loan attacks in real-time. I built this to demonstrate a practical, real-world example of how decentralized security monitors can be used to defend DeFi protocols.
 
@@ -87,7 +86,6 @@ This two-step process provides a robust and verifiable response to detected thre
 │   └── BaitResponse.t.sol  # Tests for the response contract.
 ├── scripts/
 │   └── DeployBaitResponse.s.sol # A Foundry script to deploy the response contract.
-├── out/                    # Compiled contract artifacts (ignored by Git).
 ├── drosera.toml            # The main configuration file for the Drosera trap.
 └── foundry.toml            # The main configuration file for the Foundry toolkit.
 ```
@@ -156,7 +154,3 @@ This project provides a solid foundation, but there are many ways it could be ex
 I hope this project serves as a useful example for other developers exploring decentralized security. Feedback and contributions are highly welcome. If you have ideas for improvements or find any issues, please feel free to open an issue or submit a pull request. I would be happy to see others fork this repository and build upon this work.
 
 ---
-
-## 📄 License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
