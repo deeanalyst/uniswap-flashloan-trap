@@ -121,7 +121,8 @@ The project includes a full test suite. To run the tests and verify the logic, u
 > The content of your `.env` should be this 👇
 ```bash
 HOODI_RPC_URL="your_hoodi_testnet_rpc_url"
-PRIVATE_KEY="your_wallet_private_key"```
+PRIVATE_KEY="your_wallet_private_key"
+```
 
 ```bash
 forge test
