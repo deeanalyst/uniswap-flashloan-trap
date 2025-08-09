@@ -104,26 +104,10 @@ bun install
 forge build
 ```
 
-**2. Create Environment File:**
-Create a `.env` file in the root directory and add your RPC URL and private key. This file is ignored by Git.
-```
-HOODI_RPC_URL="your_hoodi_testnet_rpc_url"
-PRIVATE_KEY="your_wallet_private_key"
-```
+**2. Deploy the Trap:**
 
-**3. Deploy the Response Contract:**
-This command deploys the `BaitResponse.sol` contract, which will be triggered by the trap.
-```bash
-source .env && forge script scripts/DeployBaitResponse.s.sol:DeployBaitResponse --rpc-url $HOODI_RPC_URL --private-key $PRIVATE_KEY --broadcast
 ```
-
-**4. Configure and Deploy the Trap:**
-Open `drosera.toml` and paste the deployed `BaitResponse` contract address into the `response_contract` field. Then, deploy the trap to the Drosera network.
-```bash
-# In drosera.toml:
-# response_contract = "0xYourBaitResponseContractAddress"
-
-source .env && drosera apply --private-key $PRIVATE_KEY
+DROSERA_PRIVATE_KEY=0x...0000 drosera apply
 ```
 
 ---
@@ -132,10 +116,14 @@ source .env && drosera apply --private-key $PRIVATE_KEY
 
 The project includes a full test suite. To run the tests and verify the logic, use the following Foundry command:
 
+// Create a .env file in the trap directory and add your RPC URL and private key. This file is ignored by Git.
+// The content of your `.env` should be this 👇
+// HOODI_RPC_URL="your_hoodi_testnet_rpc_url"
+// PRIVATE_KEY="your_wallet_private_key"
 ```bash
 forge test
 ```
-<img width="600" height="180" alt="Screenshot 2025-08-09 082323" src="https://github.com/user-attachments/assets/08c27d86-5acf-426a-bffc-3783f88b1834" />
+<img width="500" height="210" alt="Screenshot 2025-08-09 082323" src="https://github.com/user-attachments/assets/08c27d86-5acf-426a-bffc-3783f88b1834" />
 
 ---
 
