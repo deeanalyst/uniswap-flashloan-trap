@@ -119,10 +119,9 @@ The project includes a full test suite. To run the tests and verify the logic, u
 > Create a .env file in the trap directory and add your RPC URL and private key. This file is ignored by Git.
 
 > The content of your `.env` should be this 👇
-
-> HOODI_RPC_URL="your_hoodi_testnet_rpc_url"
-
-> PRIVATE_KEY="your_wallet_private_key"
+```bash
+HOODI_RPC_URL="your_hoodi_testnet_rpc_url"
+PRIVATE_KEY="your_wallet_private_key"```
 
 ```bash
 forge test
