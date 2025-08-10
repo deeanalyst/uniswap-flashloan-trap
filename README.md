@@ -44,7 +44,7 @@ This approach to security offers several key advantages:
 | **Security Engine** | [Drosera](https://app.drosera.io)        |
 | **Blockchain**    | Ethereum Hoodi Testnet |
 | **Smart Contracts**| Solidity (^0.8.30)                            |
-| **Dev Framework** | [Foundry](https://getfoundry.sh/)             |
+| **Dev Framework** | Foundry & Bun             |
 
 ---
 
@@ -99,7 +99,7 @@ This two-step process provides a robust and verifiable response to detected thre
 
 ## 🚀 Setup & Deploy
 
-To get this project running, follow these steps. You will need [Foundry & Bun](https://github.com/0xmoei/Drosera-Network/) installed, just as you did for the `helloworld` test trap by Drosera. As well as other packages like `docker`, `screen`, etc.
+To get this project running, follow these steps. You will need [Foundry & Bun](https://github.com/0xmoei/Drosera-Network/#1-configure-enviorments) installed, just as you did for the `helloworld` test trap by Drosera. As well as other packages like `docker`, `screen`, etc.
 
 **1. Clone and Install Dependencies:**
 ```bash
