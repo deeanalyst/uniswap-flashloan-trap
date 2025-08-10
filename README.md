@@ -76,7 +76,7 @@ This two-step process provides a robust and verifiable response to detected thre
 - `path` = `"out/FlashBait.sol/FlashBait.json"`
 - `response_contract` = `"0x63911db5c8d6efee51fbf397eca1ddbbd3dcd877"`
 - `response_function` = `"executeBytes(bytes)"`
-- `address` = `"0x215B8dDDAF7b18d3055478740c89C2E4E60351F1"` (trap address)
+- `address` = `"0x215B8dDDAF7b18d3055478740c89C2E4E60351F1"` **(trap address)**
 ---
 
 ## 📂 Project Structure
