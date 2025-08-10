@@ -99,7 +99,7 @@ This two-step process provides a robust and verifiable response to detected thre
 
 ## 🚀 Setup & Deploy
 
-To get this project running, follow these steps. You will need [Foundry](https://getfoundry.sh/) and [Bun](https://bun.sh/) installed.
+To get this project running, follow these steps. You will need [Foundry & Bun](https://github.com/0xmoei/Drosera-Network/) installed, just as you did for the `helloworld` test trap by Drosera. As well as other packages like `docker`, `screen`, etc.
 
 **1. Clone and Install Dependencies:**
 ```bash
@@ -121,7 +121,7 @@ DROSERA_PRIVATE_KEY=0x...0000 drosera apply
 
 The project includes a full test suite. To run the tests and verify the logic, use the following Foundry command:
 
-> Create a .env file in the trap directory and add your RPC URL and private key. This file is ignored by Git.
+> Create a `.env` file in the trap directory and add your RPC URL and private key. This file is ignored by Git.
 
 > The content of your `.env` should be this 👇
 ```bash
